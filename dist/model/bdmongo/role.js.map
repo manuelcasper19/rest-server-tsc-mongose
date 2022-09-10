@@ -1,0 +1,1 @@
+{"version":3,"file":"role.js","sourceRoot":"","sources":["../../../model/bdmongo/role.ts"],"names":[],"mappings":";;AAAA,uCAAyC;AAEzC,MAAM,UAAU,GAAG,IAAI,iBAAM,CACzB;IACI,GAAG,EAAE;QACD,IAAI,EAAE,MAAM;QACZ,OAAO,EAAE,CAAC,IAAI,EAAE,qBAAqB,CAAC;KACzC;CACJ,CACJ,CAAC;AAEF,kBAAe,IAAA,gBAAK,EAAC,KAAK,EAAE,UAAU,CAAE,CAAC"}
