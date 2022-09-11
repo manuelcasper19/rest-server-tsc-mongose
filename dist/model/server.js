@@ -16,11 +16,13 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const users_routes_1 = __importDefault(require("../routes/users.routes"));
 const auth_routes_1 = __importDefault(require("../routes/auth.routes"));
+const categoria_routes_1 = __importDefault(require("../routes/categoria.routes"));
 const config_1 = require("../db/config");
 class Server {
     constructor() {
         this.path = {
             auth: '/api/auth',
+            categoria: '/api/categorias',
             user: '/api/users'
         };
         //creamos la instancia de express
@@ -56,6 +58,7 @@ class Server {
     routes() {
         this.app.use(this.path.user, users_routes_1.default);
         this.app.use(this.path.auth, auth_routes_1.default);
+        this.app.use(this.path.categoria, categoria_routes_1.default);
     }
     listen() {
         this.app.listen(this.port, () => {

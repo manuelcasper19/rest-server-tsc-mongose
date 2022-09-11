@@ -3,6 +3,7 @@ import cors from "cors"
 
 import router from "../routes/users.routes";
 import routerAuth from "../routes/auth.routes";
+import routerCategoria from "../routes/categoria.routes";
 import { dbConnection } from "../db/config";
 
 class Server {
@@ -10,6 +11,7 @@ class Server {
     private port: string;
     private path = {
         auth: '/api/auth',
+        categoria: '/api/categorias',
         user: '/api/users'
     }
 
@@ -54,6 +56,7 @@ class Server {
     private routes(){
         this.app.use( this.path.user, router );
         this.app.use( this.path.auth, routerAuth );
+        this.app.use( this.path.categoria, routerCategoria );
     }
 
     public listen(){

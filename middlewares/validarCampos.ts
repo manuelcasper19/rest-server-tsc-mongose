@@ -23,7 +23,7 @@ export const esAdmin = ( req: Request, res: Response, next: NextFunction ) => {
     }
 
     const { rol, name } = req.usuario;
-
+    console.log( rol)
     //verificamos que el rol sea admini
     if( rol !== 'ADMIN_ROLE'){
         return res.status(401).json({
@@ -32,4 +32,24 @@ export const esAdmin = ( req: Request, res: Response, next: NextFunction ) => {
     }
 
     next();
+}
+
+export const tieneRoleEstablecido = (...roles: string[]) => {
+    return ( req: Request, res: Response, next: NextFunction ) => {
+        if( !req.usuario ){
+            return res.status(500).json({
+                msg: 'Se requiere verificar el JWT primero y luego el rol'
+            })
+        }
+        //verificamos que el rol este en el array de los permitidos
+
+        if( !roles.includes( req.usuario.rol )){
+            return res.status(500).json({
+                msg: `El servicio requiere estos roles ${ roles} y ${ req.usuario.rol } no pertenece a este grupo`
+            })            
+        }
+
+        next();
+    }
+
 }
